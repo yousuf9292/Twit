@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 import tweepy
 import csv
-import pandas as pd
 from os.path import join, dirname
-from os import environ
 import os
 from dotenv import load_dotenv, find_dotenv
 
@@ -13,12 +11,6 @@ api_key = os.environ.get('API_KEY')
 api_key_secret = os.environ.get('API_KEY_SECRET')
 access_token = os.environ.get('ACCESS_TOKEN')
 access_token_secret = os.environ.get('ACCESS_TOKEN_SECRET')
-
-# Twiterr handles of selected left-leaning US/UK publishing houses
-jacobin_handle = "jacobinmag"
-verso_handle = "versobooks"
-haymarket_handle = "haymarketbooks"
-tribune_handle = "tribunemagazine"
 
 
 def get_all_tweets(screen_name):

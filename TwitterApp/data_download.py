@@ -1,12 +1,7 @@
-import pandas as pd
-from tweets import get_all_tweets
-from data_cleaning import *
 import base64
-import time
 import streamlit as st
 
 
-# Twiterr handles of selected left-leaning US/UK publishing houses
 
 def csv_downloader(data, new_filename):
     # Generates and names a link to download the given object_to_download

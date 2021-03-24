@@ -2,10 +2,8 @@ import streamlit as st
 from tweets import get_all_tweets
 from data_cleaning import *
 from data_download import csv_downloader
-import numpy as np
 import pandas as pd
 import nltk
-import time
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 nltk.download('vader_lexicon')
@@ -83,21 +81,3 @@ with features:
         else:
             st.error("🤖: I'm detecting negativity")
 
-# st.markdown("""# This is a header
-# ## This is a sub header
-# This is text""")
-
-# df = pd.DataFrame({
-#           'first column': list(range(1, 11)),
-#           'second column': np.arange(10, 101, 10)
-#         })
-
-# # this slider allows the user to select a number of lines
-# # to display in the dataframe
-# # the selected value is returned by st.slider
-# line_count = st.slider('Select a line count', 1, 10, 3)
-
-# # and used in order to select the displayed lines
-# head_df = df.head(line_count)
-
-# head_df

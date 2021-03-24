@@ -4,28 +4,24 @@ from data_cleaning import *
 
 
 # Twiterr handles of selected left-leaning US/UK publishing houses
-jacobin_handle = "jacobinmag"
-verso_handle = "versobooks"
-haymarket_handle = "haymarketbooks"
-tribune_handle = "tribunemagazine"
+def download_link(object_to_download, download_filename, download_link_text):
+    """
+    Generates a link to download the given object_to_download.
 
-get_all_tweets(jacobin_handle)
-jacobin_tweets_df = pd.read_csv("new_jacobinmag_tweets.csv")
+    object_to_download (str, pd.DataFrame):  The object to be downloaded.
+    download_filename (str): filename and extension of file. e.g. mydata.csv, some_txt_output.txt
+    download_link_text (str): Text to display for download link.
 
-get_all_tweets(verso_handle)
-verso_tweets_df = pd.read_csv("new_versobooks_tweets.csv")
+    Examples:
+    download_link(YOUR_DF, 'YOUR_DF.csv', 'Click here to download data!')
+    download_link(YOUR_STRING, 'YOUR_STRING.txt', 'Click here to download your text!')
 
-get_all_tweets(tribune_handle)
-tribune_tweets_df = pd.read_csv("new_tribunemagazine_tweets.csv")
+    """
+    if isinstance(object_to_download, pd.DataFrame):
+        object_to_download = object_to_download.to_csv(index=False)
 
-get_all_tweets(haymarket_handle)
-haymarket_tweets_df = pd.read_csv("new_haymarketbooks_tweets.csv")
+    # some strings <-> bytes conversions necessary here
+    b64 = base64.b64encode(object_to_download.encode()).decode()
 
+    return f'<a href="data:file/txt;base64,{b64}" download="{download_filename}">{download_link_text}</a>'
 
-df_list = [jacobin_tweets_df, verso_tweets_df, tribune_tweets_df, haymarket_tweets_df]
-
-for df in df_list:
-    df["text"] = df["text"].map(remove_rt)
-    df["text"] = df["text"].map(remove_n_char)
-    df["text"] = df["text"].map(remove_url)
-    remove_blank_tweet(df)

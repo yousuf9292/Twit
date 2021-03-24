@@ -5,3 +5,6 @@
 raw_data/
 **/__pycache__/
 .env
+data/
+notebooks/
+.bash_profileA

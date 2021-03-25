@@ -27,7 +27,7 @@ google-cloud-storage
 mlflow
 s3fs
 tweepy
-pip install python-dotenv
+python-dotenv
 # utilities
 six>=1.14
 joblib

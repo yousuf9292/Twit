@@ -7,10 +7,10 @@ from dotenv import load_dotenv, find_dotenv
 
 env_path = join(dirname(__file__), ".env")
 load_dotenv(find_dotenv())
-api_key = os.environ.get('API_KEY')
-api_key_secret = os.environ.get('API_KEY_SECRET')
-access_token =os.environ.get('ACCESS_TOKEN')
-access_token_secret = os.environ.get('ACCESS_TOKEN_SECRET')
+api_key = ${{ secrets.API_KEY }}
+api_key_secret = ${{ secrets.API_KEY_SECRET }}
+access_token =${{ secrets.ACCESS_TOKEN }}
+access_token_secret =${{ secrets.ACCESS_TOKEN_SECRET }}
 
 
 def get_all_tweets(screen_name):

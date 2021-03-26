@@ -11,7 +11,7 @@ wheel>=0.29
 numpy
 pandas
 scikit-learn
-pip install nltk==3.5
+nltk==3.5
 
 
 # tests/linter

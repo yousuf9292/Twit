@@ -6,7 +6,7 @@ import pandas as pd
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-# nltk.download('vader_lexicon')
+nltk.download('vader_lexicon')
 sid = SentimentIntensityAnalyzer()
 
 header = st.beta_container()
